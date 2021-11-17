@@ -16,10 +16,14 @@ var precio, descuento int
 func main() {
 	fmt.Println("Ejercicio 2")
 	precio, descuento := 10000, 50
-	fmt.Printf("El descuento de la prenda es: %d", hacerDescuento(precio, descuento))
+	fmt.Printf("La prenda con decuento del %d sale: %d", descuento, hacerDescuento(precio, descuento))
+
+	precio2, descuento2 := 7000, 25
+	fmt.Printf("\nLa prenda con decuento del %d sale: %d", descuento, hacerDescuento(precio2, descuento2))
 
 }
 
 func hacerDescuento(precio, descuento int) int {
-	return (precio / 100) * descuento
+	descuentoAPrenda := (precio / 100) * descuento
+	return precio - descuentoAPrenda
 }

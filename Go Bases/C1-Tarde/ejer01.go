@@ -20,9 +20,14 @@ func main() {
 		fmt.Println(string(palabra[i]))
 	}*/
 
-	//Opcion 2
+	//Opcion 2 Mostrando el indice
 	for indice, letra := range palabra {
 		fmt.Printf("Posicion: %d - Letra: %c \n", indice, letra)
+	}
+
+	//Opcion 3 Ignorando el indice con _
+	for _, letra := range palabra {
+		fmt.Printf("Letra: %c \n", letra)
 	}
 
 }
