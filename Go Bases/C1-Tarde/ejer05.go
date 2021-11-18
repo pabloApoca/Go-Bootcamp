@@ -15,6 +15,23 @@ Gabriela
 */
 import "fmt"
 
+var listEstudents []string
+
 func main() {
 	fmt.Println("Ejercicio 5")
+
+	listEstudents := []string{"Benjamin", "Nahuel", "Brenda", "Marcos", "Pedro", "Axel", "Alez", "Dolores", "Federico", "Hernán", "Leandro", "Eduardo", "Duvraschka"}
+
+	//Muestro la lista de Estudiantes
+	fmt.Println(listEstudents)
+
+	//Agrego la nueva estudiante y muestro
+	listEstudents = append(listEstudents, "Gabriela")
+	fmt.Println(listEstudents)
+
+	//Agrego un nuevo estudiante y muestro
+	listEstudents = append(listEstudents, "Pablo")
+	fmt.Println(listEstudents)
+
+	fmt.Println("En la clase hay: ", len(listEstudents), " Estudiantes.")
 }
