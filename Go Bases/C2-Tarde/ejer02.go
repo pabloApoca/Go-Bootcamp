@@ -33,14 +33,17 @@ func main() {
 		ancho:   3,
 	}
 
-	Matriz.set(matrix)
+	//hacer matrix.set(valores etc..)
+	matrix.set(1, 2, 3, 4, 5) //ok
+	//Matriz.set(matrix)
 	fmt.Println("\nEl numero maximo es: ", Matriz.max(matrix))
 	fmt.Println("\nEs cuadratica: ", Matriz.esCuadratica(matrix))
 	fmt.Println()
+	matrix.set(1, 2, 3, 4, 5)
 	Matriz.print(matrix)
 }
 
-func (m Matriz) set(valores ...float64) {
+func (m Matriz) set(valores ...float64) { //Ver con punteros
 	m.valores = valores
 }
 
