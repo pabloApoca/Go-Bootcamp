@@ -39,7 +39,7 @@ func main() {
 	fmt.Println("\nEl numero maximo es: ", Matriz.max(matrix))
 	fmt.Println("\nEs cuadratica: ", Matriz.esCuadratica(matrix))
 	fmt.Println()
-	matrix.set(1, 2, 3, 4, 5)
+	//matrix.set(1, 2, 3, 4, 5)
 	Matriz.print(matrix)
 }
 
