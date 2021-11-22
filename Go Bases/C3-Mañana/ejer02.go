@@ -16,8 +16,20 @@ ID                            Precio  Cantidad
                           4030062.50
 
 */
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+)
 
 func main() {
 	fmt.Println("Ejercicio 2")
+
+	datosBytes, err := ioutil.ReadFile("./Productos.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	datosString := string(datosBytes)
+
+	fmt.Println(datosString)
 }
