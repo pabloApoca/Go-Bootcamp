@@ -25,6 +25,10 @@ type producto struct {
 	cantidad int
 }
 
+func (p producto) toString() string {
+	return fmt.Sprintf("%d;%f;%d\n", p.id, p.precio, p.cantidad)
+}
+
 func main() {
 	fmt.Println("Ejercicio 1")
 
@@ -38,14 +42,18 @@ func main() {
 	prto[1].precio = 500
 	prto[1].cantidad = 4
 
-	prto[2] = producto{ // Asignacion mediante un objeto JSON
+	prto[2] = producto{ // Asignacion mediante campos
 		id:       3,
 		precio:   1000,
 		cantidad: 9,
 	}
 
 	//Genero toda la lista de productos y la almaceno en un string para que sea leido por []byte
-	res := fmt.Sprintln(prto)
+	//res := fmt.Sprintln(prto)
+	var res string
+	for _, pr := range prto {
+		res += pr.toString()
+	}
 	listaProductos := []byte(res)
 
 	err := ioutil.WriteFile("./Productos.txt", listaProductos, 0644)

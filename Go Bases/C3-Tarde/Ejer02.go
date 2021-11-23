@@ -65,6 +65,26 @@ func main() {
 
 	fmt.Println("Usuario numero 1:")
 	fmt.Println(user1)
+	//-------------------------------------
+
+	fmt.Println("\nNuevo producto:")
+	newProd := nuevoProducto("Fuente 700w", 27000)
+	fmt.Println(newProd)
+	//-------------------------------------
+
+	fmt.Println("\nAgrego un producto a un usuario con la cantidad que indique:")
+	var punteroUser *usuario
+	punteroUser = &user1
+	var punteroProd *producto
+	punteroProd = &newProd
+
+	agregarProducto(punteroUser, punteroProd, 3)
+	fmt.Println(user1)
+	//-------------------------------------
+
+	fmt.Println("\nElimino la lista de productos del usuario:")
+	borrarProducto(&user1)
+	fmt.Println(user1)
 
 }
 
@@ -79,14 +99,12 @@ func nuevoProducto(nombre string, precio float64) producto {
 }
 
 //-	Agregar producto: recibe usuario, producto y cantidad, no retorna nada, agrega el producto al usuario.
-func agregarProducto(user usuario, prod producto, cant int) {
-
+func agregarProducto(user *usuario, prod *producto, cant int) {
+	prod.cantidad = cant
+	user.productos = append(user.productos, *prod)
 }
 
 //-	Borrar productos: recibe un usuario, borra los productos del usuario.
-func borrarProducto(user usuario) {
-
-	/*for i, prod := range user.productos {
-		delete(i,prod)
-	}*/
+func borrarProducto(user *usuario) {
+	user.productos = append(user.productos[:0], user.productos[len(user.productos):]...)
 }
