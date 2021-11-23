@@ -104,36 +104,41 @@ func main() {
 	listaDeMantenimiento = append(listaDeMantenimiento, mant1, mant2, mant3)
 
 	//Imprimir listas y calcular totales
-	fmt.Println("\nLista de Productos: ", listaDeProductos)
-	//totalP:= sumarProductos(listaDeProductos)
-	//totalP:= go sumarProductos(listaDeProductos) //No me deja hacerlo
+	fmt.Println("\nLista de Productos: ", listaDeProductos) //----Productos
+	c1Pro := make(chan float64)                             //Creo un canal
+	go sumarProductos(listaDeProductos, c1Pro)              //Mando la lista con el canal
+	totaP := <-c1Pro                                        // recibimos el valor del canal
+	fmt.Println("Total: ", totaP)
 
-	fmt.Printf("Total: %f", go sumarProductos(listaDeProductos)) //Tampoco me deja hacerlo
-
-	fmt.Println("\nLista de Servicios: ", listaDeServicios)
-	totalS := sumarServicios(listaDeServicios)
+	fmt.Println("\nLista de Servicios: ", listaDeServicios) //----Servicios
+	c2Ser := make(chan float64)
+	go sumarServicios(listaDeServicios, c2Ser)
+	totalS := <-c2Ser
 	fmt.Println("Total: ", totalS)
 
-	fmt.Println("\nLista de Mantenimiento: ", listaDeMantenimiento)
-	totalM := sumarMantenimiento(listaDeMantenimiento)
+	fmt.Println("\nLista de Mantenimiento: ", listaDeMantenimiento) //----Mantenimiento
+	c3Mant := make(chan float64)
+	go sumarMantenimiento(listaDeMantenimiento, c3Mant)
+	totalM := <-c3Mant
 	fmt.Println("Total: ", totalM)
+
+	fmt.Println("\nEl total de todo es: ", totaP+totalS+totalS)
 
 }
 
 //-	Sumar Productos: recibe un array de producto y devuelve el precio total (precio * cantidad).
-func sumarProductos(productos []Productos) float64 {
+func sumarProductos(productos []Productos, c chan float64) {
 	var total float64
 
 	for _, producto := range productos {
 		total += (producto.precio * float64(producto.cantidad))
 	}
-
-	return total
+	c <- total
 }
 
 //-	Sumar Servicios: recibe un array de servicio y devuelve el precio total
 //(precio * media hora trabajada, si no llega a trabajar 30 minutos se le cobra como si hubiese trabajado media hora).
-func sumarServicios(servicios []Servicios) float64 {
+func sumarServicios(servicios []Servicios, s chan float64) {
 
 	var total float64
 
@@ -141,20 +146,19 @@ func sumarServicios(servicios []Servicios) float64 {
 		horas := servicio.minTrabajados / 30
 		total += (servicio.precio * float64(horas))
 	}
-
-	return total
+	s <- total
 }
 
 //-	Sumar Mantenimiento: recibe un array de mantenimiento y devuelve el precio total.*/
 
-func sumarMantenimiento(mantenimientos []Mantenimiento) float64 {
+func sumarMantenimiento(mantenimientos []Mantenimiento, m chan float64) {
 	var total float64
 
 	for _, mantenimiento := range mantenimientos {
 		total += mantenimiento.precio
 	}
 
-	return total
+	m <- total
 }
 
 /*func sumTotal(lprod []Productos, lserv []Servicios, lmant []Mantenimiento) float64 {
