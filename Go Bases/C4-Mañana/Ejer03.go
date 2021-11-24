@@ -11,7 +11,24 @@ import (
 	"fmt"
 )
 
+var salary, salary2 int //Domain Driven Design
+
 func main() {
 	fmt.Println("Ejercicio 3")
 
+	salary := 150001
+	if salary < 150000 {
+		err := fmt.Errorf("\nerror: el mínimo imponible es de 150.000 y el salario ingresado es de: %d", salary)
+		fmt.Println(err)
+		return
+	}
+	fmt.Println("\nDebe pagar impuesto")
+
+	salary2 := 149000
+	if salary2 < 150000 {
+		err := fmt.Errorf("\nerror: el mínimo imponible es de 150.000 y el salario ingresado es de: %d", salary2)
+		fmt.Println(err)
+		return
+	}
+	fmt.Println("nDebe pagar impuesto")
 }
