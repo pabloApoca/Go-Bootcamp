@@ -1,6 +1,10 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"log"
+
+	"github.com/gin-gonic/gin"
+)
 
 var empleados = map[string]string{
 	"644": "Empleado A",
@@ -38,6 +42,8 @@ func main() {
 	server := gin.Default()
 	server.GET("/", PaginaPrincipal)
 	server.GET("/empleados/:id", BuscarEmpleado)
+	server.GET("/empleadosparams", BuscarEmpleadoParams)
+
 	server.Run(":8080")
 }
 
@@ -56,14 +62,14 @@ func BuscarEmpleado(ctxt *gin.Context) {
 	}
 }
 
-/*func BuscarEmpleado(ctxt *gin.Context) {
+func BuscarEmpleadoParams(ctxt *gin.Context) {
 
 	var empleado Empleado
- //Nuestro objetivo aquí es asignar los campos de nuestra estructura con los datos que recibimos del request.
+	//Nuestro objetivo aquí es asignar los campos de nuestra estructura con los datos que recibimos del request.
 	if ctxt.BindQuery(&empleado) == nil {
 		log.Println("====== Bind Por Query String ======")
 		log.Println(empleado.Id)
 		log.Println(empleado.Nombre)
-		ctxt.String(200, "(Query String) - Empleado: %s, Id: %s\n",empleado.Nombre, empleado.Id)
+		ctxt.String(200, "(Query String) - Empleado: %s, Id: %s\n", empleado.Nombre, empleado.Id)
 	}
- }*/
+}
