@@ -1,6 +1,9 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -55,6 +58,8 @@ func main() {
 
 	server.GET("/productosparams", DevolverProductoParams)
 
+	server.GET("/filtrarproductos", FiltrarProductosFecha)
+
 	server.Run(":8080")
 }
 
@@ -108,4 +113,44 @@ func DevolverProductoParams(ctxt *gin.Context) {
 			"Producto": producto,
 		})
 	}
+}
+
+//Esta función solo mostrará aquellos empleados activos o inactivos, dependiente del parámetro active.
+/*func FiltrarEmpleados(ctxt *gin.Context) {
+	empleados := GenerarListaEmpleados()
+	var filtrados []*Empleado
+	for i, e := range empleados {
+		if ctxt.Query("active") == e.Activo {
+			filtrados = append(filtrados, &e)
+		}
+	}
+   }*/
+
+//Esta función solo mostrará aquellos productos filtrados por fechas
+func FiltrarProductosFecha(ctxt *gin.Context) {
+
+	datosBytes, err := ioutil.ReadFile("./productos.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+	datosString := string(datosBytes)
+
+	fmt.Println(datosString)
+	var listProducts []Producto
+
+	if err := json.Unmarshal([]byte(datosString), &listProducts); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(listProducts)
+
+	productos := listProducts
+	var filtrados []Producto
+	for _, e := range productos {
+		if ctxt.Query("fechadecreacion") == e.FechaDeCreacion {
+			filtrados = append(filtrados, e)
+		}
+	}
+
+	ctxt.JSON(200, filtrados) //Para devolver directamente todo el arreglo de Productos filtrados
 }
