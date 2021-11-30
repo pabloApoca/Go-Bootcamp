@@ -12,6 +12,7 @@ import "github.com/gin-gonic/gin"
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -49,6 +50,21 @@ func main() {
 	router.GET("/productos", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": p,
+		})
+	})
+
+	router.GET("/GetAll", func(c *gin.Context) {
+
+		datosBytes, err := ioutil.ReadFile("./productos.json")
+		if err != nil {
+			log.Fatal(err)
+		}
+		datosString := string(datosBytes)
+
+		fmt.Println(datosString)
+
+		c.JSON(200, gin.H{
+			"message": datosString,
 		})
 	})
 

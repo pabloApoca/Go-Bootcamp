@@ -1,12 +1,12 @@
 [
     {
-        "id": 1,
-        "nombre": "Fideos",
-        "precio": 200,
-        "stock": 20,
-        "codigo": "asdm32231",
-        "publicado": true,
-        "fechadecreacion": "29/11/2021"
+        "Id": 1,
+        "Nombre": "Fideos",
+        "Precio": 200,
+        "Stock": 20,
+        "Codigo": "asdm32231",
+        "Publicado": true,
+        "FechaDeCreacion": "29/11/2021"
 
     },
     {

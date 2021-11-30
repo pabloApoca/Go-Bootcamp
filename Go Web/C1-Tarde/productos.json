@@ -1,0 +1,62 @@
+[
+    {
+        "Id": 1,
+        "Nombre": "Fideos",
+        "Precio": 200,
+        "Stock": 20,
+        "Codigo": "asdm32231",
+        "Publicado": true,
+        "FechaDeCreacion": "29/11/2021"
+
+    },
+    {
+        "Id": 2,
+        "Nombre": "Gaseosa",
+        "Precio": 100,
+        "Stock": 40,
+        "Codigo": "ljkl7799",
+        "Publicado": true,
+        "FechaDeCreacion": "1/11/2021"
+
+    },
+    {
+        "Id": 3,
+        "Nombre": "Carnes picada",
+        "Precio": 500,
+        "Stock": 600,
+        "Codigo": "rter4324",
+        "Publicado": true,
+        "FechaDeCreacion": "11/11/2021"
+
+    },
+    {
+        "Id": 4,
+        "Nombre": "Queso rallado",
+        "Precio": 300,
+        "Stock": 10,
+        "Codigo": "vbnmvb786",
+        "Publicado": true,
+        "FechaDeCreacion": "5/11/2021"
+
+    },
+    {
+        "Id": 5,
+        "Nombre": "Catys",
+        "Precio": 150,
+        "Stock": 500,
+        "Codigo": "bcvb453",
+        "Publicado": true,
+        "FechaDeCreacion": "25/11/2021"
+
+    },
+    {
+        "Id": 6,
+        "Nombre": "Shampoo",
+        "Precio": 400,
+        "Stock": 10,
+        "Codigo": "popd435",
+        "Publicado": true,
+        "FechaDeCreacion": "20/11/2021"
+
+    }
+]
