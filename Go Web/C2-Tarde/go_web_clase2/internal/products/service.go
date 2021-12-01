@@ -1,9 +1,10 @@
-package service
+package products
 
 //import repository
-import "Go-Bootcamp\Go Web\C2-Tarde\internal\products\repository.go"
+//import "github.com/pabloApoca/go_web_clase2/internal/products/repository.go"
 
-//Implementaremos la interface Servicio con sus métodos y una función que reciba un Repositorio y nos devuelva el servicio que se utilizará, instanciado.
+//Implementaremos la interface Servicio con sus métodos y una función que reciba un Repositorio
+//y nos devuelva el servicio que se utilizará, instanciado.
 type Service interface {
 	GetAll() ([]Product, error)
 	Store(nombre, tipo string, cantidad int, precio float64) (Product, error)

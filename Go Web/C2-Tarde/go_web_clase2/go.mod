@@ -1,4 +1,4 @@
-module C2-Tarde
+module github.com/pabloApoca/go_web_clase2
 
 go 1.17
 

@@ -12,22 +12,26 @@ go get -u github.com/gin-gonic/gin
 Luego lo importamos  a nuestro código:
 import "github.com/gin-gonic/gin"
 */
+//	"github.com/pabloApoca/go_web_clase2/cmd/server\handler"
+
 import (
 	"github.com/gin-gonic/gin"
-	"C2-Tarde\cmd\server\handler"
-	"C2-Tarde\internal\products"
- )
+	"github.com/pabloApoca/go_web_clase2/cmd/server/handler"
+	"github.com/pabloApoca/go_web_clase2/internal/products"
+)
 
 //Instanciamos cada capa del dominio Productos y utilizaremos los métodos del controlador para cada endpoint
 func main() {
 	repo := products.NewRepository()
 	service := products.NewService(repo)
 	p := handler.NewProduct(service)
- 
+
 	r := gin.Default()
 	pr := r.Group("/products")
 	pr.POST("/", p.Store())
 	pr.GET("/", p.GetAll())
 	r.Run()
- 
+
 }
+
+//Lo corremos con go run cmd/server/main.go
