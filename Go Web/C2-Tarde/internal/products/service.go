@@ -1,9 +1,7 @@
 package service
 
-//import repository
-import "Go-Bootcamp\Go Web\C2-Tarde\internal\products\repository.go"
-
-//Implementaremos la interface Servicio con sus métodos y una función que reciba un Repositorio y nos devuelva el servicio que se utilizará, instanciado.
+//Implementaremos la interface Servicio con sus métodos y una función que reciba un Repositorio y nos devuelva
+//el servicio que se utilizará, instanciado.
 type Service interface {
 	GetAll() ([]Product, error)
 	Store(nombre, tipo string, cantidad int, precio float64) (Product, error)
@@ -28,7 +26,8 @@ func (s *service) GetAll() ([]Product, error) {
 	return ps, nil
 }
 
-//El método Store se encargará de pasarle la tarea de obtener el ultimo ID y guardar el producto al Repositorio, el servicio se encargará de incrementar el ID.
+//El método Store se encargará de pasarle la tarea de obtener el ultimo ID y guardar el producto al Repositorio,
+//el servicio se encargará de incrementar el ID.
 func (s *service) Store(nombre, tipo string, cantidad int, precio float64) (Product, error) {
 	lastID, err := s.repository.LastID()
 	if err != nil {
