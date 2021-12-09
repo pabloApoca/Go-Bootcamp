@@ -1,0 +1,36 @@
+-----------Ejercicio 1-----------
+¿Cuáles son las diferencias entre White Box y Black Box? 
+
+Blackbox testing es un tipo de prueba que no requiere conocimientos sobre el funcionamiento interno del 
+software para llevar a cabo las pruebas. Es un alto nivel de pruebas. El objetivo principal de las pruebas 
+de blackbox es verificar el comportamiento del software. Más importante aún, prueba la aplicación 
+considerando al usuario externo o final.
+
+Whitebox testing es un tipo de prueba que requiere conocimientos sobre el funcionamiento interno del 
+software para llevar a cabo las pruebas. Es una prueba de bajo nivel y considera la cobertura de 
+declaraciones de código, ramas, rutas, condiciones, etc.
+
+
+-----------Ejercicio 2-----------
+¿Qué es un test funcional?.
+
+Una prueba funcional es una prueba de tipo caja negra basada en la ejecución, revisión y retroalimentación 
+de las funcionalidades previamente diseñadas para el software. Las pruebas funcionales se hacen mediante el 
+diseño de modelos de prueba que buscan evaluar cada una de las opciones con las que cuenta el paquete 
+informático. Dicho de otro modo son pruebas específicas, concretas y exhaustivas para probar y validar que 
+el software hace lo que debe y sobre todo, lo que se ha especificado.
+
+Ya que las pruebas funcionales son de tipo caja negra, estas pueden ser ejecutadas sin tener conocimiento de 
+los mecanismos internos del software bajo análisis. Esto significa que los probadores de software (testers) 
+no necesitan saber lenguajes de programación o cómo se ha implementado el software. Uno de los beneficios que
+surgen a raíz de esto es la reducción del sesgo de confirmación en las pruebas ya que el tester, al contrario
+que el desarrollador, no ha estado involucrado en el desarrollo del software.
+
+
+-----------Ejercicio 3-----------
+¿Qué es un Test de Integración?
+
+Pruebas integrales o pruebas de integración son aquellas que se realizan en el ámbito del desarrollo de 
+software una vez que se han aprobado las pruebas unitarias y lo que prueban es que todos los elementos 
+unitarios que componen el software, funcionan juntos correctamente probándolos en grupo. Se centra 
+principalmente en probar la comunicación entre los componentes y sus comunicaciones ya sea hardware o software.

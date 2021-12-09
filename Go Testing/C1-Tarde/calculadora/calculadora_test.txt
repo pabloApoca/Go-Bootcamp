@@ -1,0 +1,28 @@
+package calculadora
+
+// Se importa el package testing
+import (
+	"testing"
+)
+
+func TestSumar(t *testing.T) {
+	// Se inicializan los datos a usar en el test (input/output)
+	num1 := 3
+	num2 := 5
+	resultadoEsperado := 8
+
+	// Se ejecuta el test
+	resultado := Sumar(num1, num2) //No funciona por que le cambie el nombre a calculadora_test.txt
+
+	// Se validan los resultados
+	if resultado != resultadoEsperado {
+		t.Errorf("Funcion suma() arrojo el resultado = %v, pero el esperado es  %v", resultado, resultadoEsperado)
+	}
+}
+
+//El método t.Errorf() es el encargado de registrar el error así como mostrar formateados los argumentos usados.
+
+//De la misma manera que instalamos cualquier módulo o librería, podemos instalar testify a través del
+//comando “go get”
+
+//go get github.com/stretchr/testify
