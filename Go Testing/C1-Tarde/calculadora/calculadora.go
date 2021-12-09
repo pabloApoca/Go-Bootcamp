@@ -16,5 +16,10 @@ func Restar(num1, num2 int) int {
 	return num1 - num2
 }
 
+// Función que recibe dos enteros (numerador y denominador) y retorna la división resultante
+func Dividir(num, den int) int {
+	return num / den
+}
+
 //Finalmente procedemos a la ejecución del test:
 //go test

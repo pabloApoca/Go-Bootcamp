@@ -30,3 +30,16 @@ func TestSumar(t *testing.T) {
 // Validar desigualdad -> assert.NotEqual(t, 123, 456, "no deberían ser iguales")
 // Validar Nulo Esperado (Bueno para errores) ->  assert.Nil(t, object)
 //Validar No Nulo Esperado (Bueno para cuando esperamos algo) -> assert.NotNil(t, object)
+
+func TestDividir(t *testing.T) {
+	// Se inicializan los datos a usar en el test (input/output)
+	num1 := 3
+	num2 := 0
+
+	// Se ejecuta el test
+	resultado := Dividir(num1, num2)
+
+	// Se validan los resultados aprovechando testify
+	assert.NotNil(t, resultado)
+
+}
